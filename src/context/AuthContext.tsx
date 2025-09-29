@@ -32,9 +32,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const { isFetching } = useQuery({
     queryKey: ["USER"],
     queryFn: () => {
-      return axiosInstance.get("/user/me").then((res) => {
-        setUser(res?.data?.data);
-      });
+      try {
+        return axiosInstance.get("/user/me").then((res) => {
+          setUser(res?.data?.data);
+        });
+      } catch (_) {
+        location.href = "/auth";
+      }
     },
     enabled: !!token,
   });

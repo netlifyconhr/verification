@@ -62,61 +62,49 @@ export const tasksColumns: ColumnDef<Task>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-
   {
-    accessorKey: "status",
+    accessorKey: "aadharFront",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Status" />
+      <DataTableColumnHeader column={column} title="Aadhar Front" />
     ),
-    cell: ({ row }) => {
-      const status = statuses.find(
-        (status) => status.value === row.getValue("status")
-      );
-
-      if (!status) {
-        return null;
-      }
-
-      return (
-        <div className="flex w-[100px] items-center gap-2">
-          {status.icon && (
-            <status.icon className="text-muted-foreground size-4" />
-          )}
-          <span>{status.label}</span>
-        </div>
-      );
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
-    },
+    cell: ({ row }) => (
+      <div className="w-[80px]">
+        {<img src={row.getValue("aadharFront")} alt="" />}
+      </div>
+    ),
   },
   {
-    accessorKey: "priority",
+    accessorKey: "aadharBack",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Priority" />
+      <DataTableColumnHeader column={column} title="Aadhar Back" />
     ),
-    cell: ({ row }) => {
-      const priority = priorities.find(
-        (priority) => priority.value === row.getValue("priority")
-      );
-
-      if (!priority) {
-        return null;
-      }
-
-      return (
-        <div className="flex items-center gap-2">
-          {priority.icon && (
-            <priority.icon className="text-muted-foreground size-4" />
-          )}
-          <span>{priority.label}</span>
-        </div>
-      );
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
-    },
+    cell: ({ row }) => (
+      <div className="w-[80px]">
+        {<img src={row.getValue("aadharBack")} alt="" />}
+      </div>
+    ),
   },
+  {
+    accessorKey: "experience",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Experience" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[80px]">
+        {<img src={row.getValue("experience")} alt="" />}
+      </div>
+    ),
+  },
+  {
+    accessorKey: "pan",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="PAN" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[80px]">{<img src={row.getValue("pan")} alt="" />}</div>
+    ),
+  },
+
   {
     id: "actions",
     cell: ({ row }) => <DataTableRowActions row={row} />,
