@@ -69,7 +69,9 @@ export const tasksColumns: ColumnDef<Task>[] = [
     ),
     cell: ({ row }) => (
       <div className="w-[80px]">
-        {<img src={row.getValue("aadharFront")} alt="" />}
+        <a href={row.getValue("aadharFront")} target="_blank">
+          <img src={row.getValue("aadharFront")} alt="" />
+        </a>
       </div>
     ),
   },
@@ -80,7 +82,9 @@ export const tasksColumns: ColumnDef<Task>[] = [
     ),
     cell: ({ row }) => (
       <div className="w-[80px]">
-        {<img src={row.getValue("aadharBack")} alt="" />}
+        <a href={row.getValue("aadharBack")} target="_blank">
+          <img src={row.getValue("aadharBack")} alt="" />
+        </a>
       </div>
     ),
   },
@@ -91,7 +95,9 @@ export const tasksColumns: ColumnDef<Task>[] = [
     ),
     cell: ({ row }) => (
       <div className="w-[80px]">
-        {<img src={row.getValue("experience")} alt="" />}
+        <a href={row.getValue("experience")} target="_blank">
+          <img src={row.getValue("experience")} alt="" />
+        </a>
       </div>
     ),
   },
@@ -101,7 +107,12 @@ export const tasksColumns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="PAN" />
     ),
     cell: ({ row }) => (
-      <div className="w-[80px]">{<img src={row.getValue("pan")} alt="" />}</div>
+      <div className="w-[80px]">
+        {" "}
+        <a href={row.getValue("pan")} target="_blank">
+          <img src={row.getValue("pan")} alt="" />
+        </a>
+      </div>
     ),
   },
 
