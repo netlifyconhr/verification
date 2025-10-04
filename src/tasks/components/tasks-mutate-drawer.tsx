@@ -17,13 +17,11 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Textarea } from "@/components/ui/textarea";
-import { showSubmittedData } from "@/lib/show-submitted-data";
-import { zodResolver } from "@hookform/resolvers/zod";
+import axiosInstance from "@/lib/axios-instance";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { type Task } from "../data/schema";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axiosInstance from "@/lib/axios-instance";
 
 type TaskMutateDrawerProps = {
   open: boolean;
@@ -145,6 +143,26 @@ export function TasksMutateDrawer({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>PAN Status</FormLabel>
+                  <SelectDropdown
+                    className="w-full"
+                    defaultValue={field.value}
+                    onValueChange={field.onChange}
+                    placeholder="Select a status"
+                    items={[
+                      { label: "Verified", value: "Verified" },
+                      { label: "Not Verified", value: "Not Verified" },
+                    ]}
+                  />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="experienceStatus"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Experience Status</FormLabel>
                   <SelectDropdown
                     className="w-full"
                     defaultValue={field.value}
