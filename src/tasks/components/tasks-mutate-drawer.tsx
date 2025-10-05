@@ -20,6 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 import axiosInstance from "@/lib/axios-instance";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 import { type Task } from "../data/schema";
 
@@ -65,6 +66,8 @@ export function TasksMutateDrawer({
       queryClient.invalidateQueries({
         queryKey: ["VERIFICATION_LIST"],
       });
+      toast.success("Updated data successfully!")
+
     },
   });
 
@@ -109,6 +112,9 @@ export function TasksMutateDrawer({
                     onValueChange={field.onChange}
                     placeholder="Select a status"
                     items={[
+                      { label: "Select a status", value: " " },
+                      { label: "Pending", value: "Pending" },
+
                       { label: "Verified", value: "Verified" },
                       { label: "Not Verified", value: "Not Verified" },
                     ]}
@@ -129,6 +135,9 @@ export function TasksMutateDrawer({
                     onValueChange={field.onChange}
                     placeholder="Select a status"
                     items={[
+                      { label: "Select a status", value: " " },
+                      { label: "Pending", value: "Pending" },
+
                       { label: "Verified", value: "Verified" },
                       { label: "Not Verified", value: "Not Verified" },
                     ]}
@@ -149,6 +158,9 @@ export function TasksMutateDrawer({
                     onValueChange={field.onChange}
                     placeholder="Select a status"
                     items={[
+                      { label: "Select a status", value: " " },
+                      { label: "Pending", value: "Pending" },
+
                       { label: "Verified", value: "Verified" },
                       { label: "Not Verified", value: "Not Verified" },
                     ]}
@@ -169,7 +181,11 @@ export function TasksMutateDrawer({
                     onValueChange={field.onChange}
                     placeholder="Select a status"
                     items={[
+                      { label: "Select a status", value: " " },
+
+                      { label: "Pending", value: "Pending" },
                       { label: "Verified", value: "Verified" },
+
                       { label: "Not Verified", value: "Not Verified" },
                     ]}
                   />
