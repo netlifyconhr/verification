@@ -123,6 +123,52 @@ export function TasksMutateDrawer({
                 </FormItem>
               )}
             />
+             <FormField
+              control={form.control}
+              name="criminalStatus"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Criminal Record Status</FormLabel>
+                  <SelectDropdown
+                    className="w-full"
+                    defaultValue={field.value}
+                    onValueChange={field.onChange}
+                    placeholder="Select a status"
+                    items={[
+                      { label: "Select a status", value: " " },
+                      { label: "Pending", value: "Pending" },
+
+                      { label: "Verified", value: "Verified" },
+                      { label: "Not Verified", value: "Not Verified" },
+                    ]}
+                  />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+              <FormField
+              control={form.control}
+              name="addressStatus"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Criminal Status</FormLabel>
+                  <SelectDropdown
+                    className="w-full"
+                    defaultValue={field.value}
+                    onValueChange={field.onChange}
+                    placeholder="Select a status"
+                    items={[
+                      { label: "Select a status", value: " " },
+                      { label: "Pending", value: "Pending" },
+
+                      { label: "Verified", value: "Verified" },
+                      { label: "Not Verified", value: "Not Verified" },
+                    ]}
+                  />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="educationStatus"
